@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+a {
+    text-decoration: none;
+    color: #001F3F;
+}
+body{
+    background-image: linear-gradient(120deg, #b2ccf4 0%, #72829c 100%);
+    font-family: 'Muli', sans-serif;
+    color: #001F3F;
+}
+header{
+    display: flex;
+    align-items: center;
+    height: 90px;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+.header__img {
+    width: 200px;
+}
+.header__menu li a:hover {
+    text-decoration: underline;
+}
+.header__menu:hover ul, ul:hover {
+    display: block;
+}
+.header__menu-profile{
+    display: flex;
+    align-items: center;
+}
+.header__menu-profile p {
+    padding-left: 10px;
+    font-size: 2rem;
+}
+.header__menu-profile ul {
+    display: none;
+    position: absolute;
+    list-style: none;
+    text-align: right;
+    right: 20px;
+    top: 70px;
+    font-size: 2rem;
+}
+/* haciendo el navegador */
+.main{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.main__title {
+    font-size: 3rem;
+}
+.input {
+    width: 70%;
+    height: 50px;
+    margin-top: 20px;
+    padding: 0 20px;
+    outline: none;
+    border: 2px solid #001F3F;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.1 );
+    font-size: 1.5rem;
+    color: #001F3F;
+}
+::placeholder{
+    color: #001F3F;
+}
+/*  hacien el carrusel con scroll */
+/* ::-webkit-scrollbar {
+    display: none;
+} */
+.carrusel {
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+}
+.carrusel__cotainer{
+    white-space: nowrap; /* para que los items sigue su flujo normal (sigan yendo hacia la derecha y no bajen) */
+    margin: 70px 20px;
+    padding-bottom: 10px;
+}
+.carrusel-item {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 200px;
+    height: 250px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+.carrusel-item:hover ~ .carrusel-item {
+    transform: translate3d(100px, 0, 0); /* todos los elementos posteriores a .carousel__item que se encuentra en estado hover, seran transladados 100px en el eje x (traslate3d (x, y, z))*/
+}
+.carrusel__cotainer:hover .carrusel-item {
+    opacity: 0.3;
+    /* al momento hacer hover en la clase .carrusel__cotainer todos los .carousel_item tendran una opacidad de 0.3 en una escala de 0 a 1 o bien el 30% de su opacidad original. */
+}
+.carrusel__cotainer:hover .carrusel-item:hover{
+    transform: scale(1.4);
+    opacity: 1;
+    /* unicamente el item, que se necuentre en estado hover recibira los cambios hechos dentro del selector */
+}
+/* haciendo los detalles de los items del carrusel */
+.carrusel-item__imgs{
+ width: 200px;
+ height: 250px;
+}
+.carrusel-item__details {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0)100%);
+    font-size: 1rem;
+    opacity: 1;
+    transition: 450ms opacity;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.carrusel-item__details img {
+    width: 30px;
+}
